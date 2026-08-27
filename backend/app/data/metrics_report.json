@@ -1,0 +1,412 @@
+{
+  "generated_by": "backend/scripts/compute_metrics.py",
+  "missing_field_detection": {
+    "n_records": 150,
+    "v1_baseline_ruleset": {
+      "total_ground_truth_missing_fields": 25,
+      "true_positives": 18,
+      "false_negatives": 7,
+      "false_positives": 0,
+      "recall": 0.72,
+      "precision": 1.0,
+      "recall_by_record_type": {
+        "supplier_email": 0.2,
+        "purchase_order": 0.8,
+        "shipment_update": 1.0,
+        "delivery_exception": null,
+        "inventory_change": 0.6667
+      }
+    },
+    "v2_iterated_ruleset": {
+      "total_ground_truth_missing_fields": 25,
+      "true_positives": 22,
+      "false_negatives": 3,
+      "false_positives": 0,
+      "recall": 0.88,
+      "precision": 1.0,
+      "recall_by_record_type": {
+        "supplier_email": 0.4,
+        "purchase_order": 1.0,
+        "shipment_update": 1.0,
+        "delivery_exception": null,
+        "inventory_change": 1.0
+      }
+    },
+    "detection_rate_v1_pct": 72.0,
+    "detection_rate_v2_pct": 88.0,
+    "improvement_percentage_points": 16.0
+  },
+  "exception_triage_time": {
+    "n_scenarios": 40,
+    "mean_manual_minutes": 10.74,
+    "mean_ai_assisted_minutes": 6.95,
+    "median_manual_minutes": 10.97,
+    "median_ai_assisted_minutes": 6.99,
+    "mean_reduction_pct": 35.2,
+    "median_reduction_pct": 36.2,
+    "min_scenario_reduction_pct": -8.3,
+    "max_scenario_reduction_pct": 58.0,
+    "scenarios": [
+      {
+        "scenario_id": "TRIAGE-001",
+        "exception_type": "quantity_mismatch",
+        "missing_fields": 1,
+        "related_records": 1,
+        "ambiguity": "medium",
+        "manual_minutes": 7.99,
+        "ai_assisted_minutes": 4.96
+      },
+      {
+        "scenario_id": "TRIAGE-002",
+        "exception_type": "wrong_item",
+        "missing_fields": 4,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 12.59,
+        "ai_assisted_minutes": 7.11
+      },
+      {
+        "scenario_id": "TRIAGE-003",
+        "exception_type": "customs_hold",
+        "missing_fields": 3,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 8.59,
+        "ai_assisted_minutes": 5.39
+      },
+      {
+        "scenario_id": "TRIAGE-004",
+        "exception_type": "damaged",
+        "missing_fields": 0,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 7.36,
+        "ai_assisted_minutes": 7.8
+      },
+      {
+        "scenario_id": "TRIAGE-005",
+        "exception_type": "missing_docs",
+        "missing_fields": 1,
+        "related_records": 3,
+        "ambiguity": "low",
+        "manual_minutes": 7.72,
+        "ai_assisted_minutes": 7.43
+      },
+      {
+        "scenario_id": "TRIAGE-006",
+        "exception_type": "wrong_item",
+        "missing_fields": 3,
+        "related_records": 3,
+        "ambiguity": "medium",
+        "manual_minutes": 13.95,
+        "ai_assisted_minutes": 7.63
+      },
+      {
+        "scenario_id": "TRIAGE-007",
+        "exception_type": "damaged",
+        "missing_fields": 2,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 8.36,
+        "ai_assisted_minutes": 4.77
+      },
+      {
+        "scenario_id": "TRIAGE-008",
+        "exception_type": "late_arrival",
+        "missing_fields": 2,
+        "related_records": 4,
+        "ambiguity": "medium",
+        "manual_minutes": 13.8,
+        "ai_assisted_minutes": 7.75
+      },
+      {
+        "scenario_id": "TRIAGE-009",
+        "exception_type": "wrong_item",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "high",
+        "manual_minutes": 13.24,
+        "ai_assisted_minutes": 7.02
+      },
+      {
+        "scenario_id": "TRIAGE-010",
+        "exception_type": "customs_hold",
+        "missing_fields": 2,
+        "related_records": 4,
+        "ambiguity": "low",
+        "manual_minutes": 10.91,
+        "ai_assisted_minutes": 6.97
+      },
+      {
+        "scenario_id": "TRIAGE-011",
+        "exception_type": "customs_hold",
+        "missing_fields": 0,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 3.32,
+        "ai_assisted_minutes": 2.62
+      },
+      {
+        "scenario_id": "TRIAGE-012",
+        "exception_type": "late_arrival",
+        "missing_fields": 2,
+        "related_records": 4,
+        "ambiguity": "high",
+        "manual_minutes": 16.17,
+        "ai_assisted_minutes": 7.67
+      },
+      {
+        "scenario_id": "TRIAGE-013",
+        "exception_type": "wrong_item",
+        "missing_fields": 4,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 16.29,
+        "ai_assisted_minutes": 14.57
+      },
+      {
+        "scenario_id": "TRIAGE-014",
+        "exception_type": "quantity_mismatch",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "high",
+        "manual_minutes": 12.31,
+        "ai_assisted_minutes": 7.33
+      },
+      {
+        "scenario_id": "TRIAGE-015",
+        "exception_type": "customs_hold",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 8.49,
+        "ai_assisted_minutes": 6.09
+      },
+      {
+        "scenario_id": "TRIAGE-016",
+        "exception_type": "damaged",
+        "missing_fields": 4,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 10.62,
+        "ai_assisted_minutes": 6.32
+      },
+      {
+        "scenario_id": "TRIAGE-017",
+        "exception_type": "missing_docs",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 5.92,
+        "ai_assisted_minutes": 4.87
+      },
+      {
+        "scenario_id": "TRIAGE-018",
+        "exception_type": "customs_hold",
+        "missing_fields": 2,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 11.03,
+        "ai_assisted_minutes": 6.04
+      },
+      {
+        "scenario_id": "TRIAGE-019",
+        "exception_type": "wrong_item",
+        "missing_fields": 4,
+        "related_records": 3,
+        "ambiguity": "medium",
+        "manual_minutes": 15.82,
+        "ai_assisted_minutes": 9.27
+      },
+      {
+        "scenario_id": "TRIAGE-020",
+        "exception_type": "damaged",
+        "missing_fields": 0,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 4.54,
+        "ai_assisted_minutes": 4.91
+      },
+      {
+        "scenario_id": "TRIAGE-021",
+        "exception_type": "missing_docs",
+        "missing_fields": 2,
+        "related_records": 2,
+        "ambiguity": "high",
+        "manual_minutes": 15.61,
+        "ai_assisted_minutes": 7.89
+      },
+      {
+        "scenario_id": "TRIAGE-022",
+        "exception_type": "late_arrival",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 6.31,
+        "ai_assisted_minutes": 4.35
+      },
+      {
+        "scenario_id": "TRIAGE-023",
+        "exception_type": "damaged",
+        "missing_fields": 4,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 12.93,
+        "ai_assisted_minutes": 7.33
+      },
+      {
+        "scenario_id": "TRIAGE-024",
+        "exception_type": "missing_docs",
+        "missing_fields": 3,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 7.91,
+        "ai_assisted_minutes": 6.2
+      },
+      {
+        "scenario_id": "TRIAGE-025",
+        "exception_type": "quantity_mismatch",
+        "missing_fields": 3,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 12.64,
+        "ai_assisted_minutes": 7.16
+      },
+      {
+        "scenario_id": "TRIAGE-026",
+        "exception_type": "missing_docs",
+        "missing_fields": 1,
+        "related_records": 3,
+        "ambiguity": "medium",
+        "manual_minutes": 10.46,
+        "ai_assisted_minutes": 6.77
+      },
+      {
+        "scenario_id": "TRIAGE-027",
+        "exception_type": "wrong_item",
+        "missing_fields": 4,
+        "related_records": 4,
+        "ambiguity": "high",
+        "manual_minutes": 20.15,
+        "ai_assisted_minutes": 10.27
+      },
+      {
+        "scenario_id": "TRIAGE-028",
+        "exception_type": "late_arrival",
+        "missing_fields": 1,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 4.65,
+        "ai_assisted_minutes": 3.77
+      },
+      {
+        "scenario_id": "TRIAGE-029",
+        "exception_type": "late_arrival",
+        "missing_fields": 1,
+        "related_records": 3,
+        "ambiguity": "medium",
+        "manual_minutes": 11.71,
+        "ai_assisted_minutes": 6.24
+      },
+      {
+        "scenario_id": "TRIAGE-030",
+        "exception_type": "missing_docs",
+        "missing_fields": 1,
+        "related_records": 1,
+        "ambiguity": "low",
+        "manual_minutes": 6.67,
+        "ai_assisted_minutes": 5.96
+      },
+      {
+        "scenario_id": "TRIAGE-031",
+        "exception_type": "customs_hold",
+        "missing_fields": 4,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 15.42,
+        "ai_assisted_minutes": 8.91
+      },
+      {
+        "scenario_id": "TRIAGE-032",
+        "exception_type": "customs_hold",
+        "missing_fields": 1,
+        "related_records": 4,
+        "ambiguity": "medium",
+        "manual_minutes": 11.41,
+        "ai_assisted_minutes": 7.94
+      },
+      {
+        "scenario_id": "TRIAGE-033",
+        "exception_type": "customs_hold",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "high",
+        "manual_minutes": 13.51,
+        "ai_assisted_minutes": 13.12
+      },
+      {
+        "scenario_id": "TRIAGE-034",
+        "exception_type": "missing_docs",
+        "missing_fields": 2,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 12.4,
+        "ai_assisted_minutes": 5.21
+      },
+      {
+        "scenario_id": "TRIAGE-035",
+        "exception_type": "quantity_mismatch",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 7.29,
+        "ai_assisted_minutes": 5.93
+      },
+      {
+        "scenario_id": "TRIAGE-036",
+        "exception_type": "damaged",
+        "missing_fields": 3,
+        "related_records": 1,
+        "ambiguity": "high",
+        "manual_minutes": 14.22,
+        "ai_assisted_minutes": 7.63
+      },
+      {
+        "scenario_id": "TRIAGE-037",
+        "exception_type": "late_arrival",
+        "missing_fields": 1,
+        "related_records": 2,
+        "ambiguity": "medium",
+        "manual_minutes": 7.48,
+        "ai_assisted_minutes": 8.1
+      },
+      {
+        "scenario_id": "TRIAGE-038",
+        "exception_type": "missing_docs",
+        "missing_fields": 3,
+        "related_records": 4,
+        "ambiguity": "medium",
+        "manual_minutes": 13.94,
+        "ai_assisted_minutes": 9.44
+      },
+      {
+        "scenario_id": "TRIAGE-039",
+        "exception_type": "wrong_item",
+        "missing_fields": 2,
+        "related_records": 2,
+        "ambiguity": "low",
+        "manual_minutes": 8.83,
+        "ai_assisted_minutes": 4.39
+      },
+      {
+        "scenario_id": "TRIAGE-040",
+        "exception_type": "quantity_mismatch",
+        "missing_fields": 1,
+        "related_records": 1,
+        "ambiguity": "medium",
+        "manual_minutes": 6.97,
+        "ai_assisted_minutes": 5.01
+      }
+    ]
+  }
+}

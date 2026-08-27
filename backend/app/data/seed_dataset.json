@@ -1,0 +1,2510 @@
+{
+  "generated_at": "2026-02-01T00:00:00",
+  "counts": {
+    "purchase_order": 35,
+    "shipment_update": 40,
+    "inventory_change": 30,
+    "supplier_email": 25,
+    "delivery_exception": 20,
+    "total": 150
+  },
+  "records": [
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7009",
+      "sender": "alfred40@harmon.com",
+      "subject": "Shipment delay notice",
+      "received_at": "2026-01-05T00:00:00",
+      "body": "Quality hold placed on the last lot for PO-2026020. Investigating and will advise on new promised date: January 29.",
+      "referenced_po_number": "PO-2026020",
+      "promised_date": "2026-01-29T00:00:00",
+      "requested_action": "await_update",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026000",
+      "po_number": "PO-2026000",
+      "supplier_id": "SUP-002",
+      "order_date": "2025-11-22T00:00:00",
+      "requested_delivery_date": "2025-11-27T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ZR-0305",
+          "qty": 124,
+          "unit_price": 35.64
+        },
+        {
+          "sku": "SKU-GW-5116",
+          "qty": 356,
+          "unit_price": 178.41
+        },
+        {
+          "sku": "SKU-BL-3315",
+          "qty": 54,
+          "unit_price": 142.74
+        }
+      ],
+      "cost_center": "CC-147",
+      "buyer_email": "justin78@turner.net",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026003",
+      "po_number": "PO-2026003",
+      "supplier_id": "SUP-012",
+      "order_date": "2025-12-31T00:00:00",
+      "requested_delivery_date": "2026-01-10T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-IQ-5346",
+          "qty": 451,
+          "unit_price": 88.39
+        },
+        {
+          "sku": "SKU-MO-5341",
+          "qty": 370,
+          "unit_price": 19.02
+        },
+        {
+          "sku": "SKU-IC-1333",
+          "qty": 126,
+          "unit_price": 186.1
+        },
+        {
+          "sku": "SKU-JN-2654",
+          "qty": 447,
+          "unit_price": 57.79
+        },
+        {
+          "sku": "SKU-GW-5116",
+          "qty": 204,
+          "unit_price": 68.52
+        }
+      ],
+      "cost_center": "CC-289",
+      "buyer_email": "dking@walters.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7006",
+      "sender": "kristinharris@clark.com",
+      "subject": "Quality hold",
+      "received_at": "2026-01-02T00:00:00",
+      "body": "Apologies for the delay on PO-2026009 \u2014 our production line had an issue. New promised date: January 24.",
+      "referenced_po_number": "PO-2026009",
+      "promised_date": "2026-01-24T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7007",
+      "sender": "kristinacarlson@garrison-thomas.com",
+      "subject": "Partial shipment notice",
+      "received_at": "2025-12-19T00:00:00",
+      "body": "Please note a partial shipment against PO-2026025 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026025",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7015",
+      "sender": "farrelldebra@le.com",
+      "subject": "PO status",
+      "received_at": "2025-12-22T00:00:00",
+      "body": "We need to update the delivery window for PO-2026022. New promised date: January 01. Please confirm receipt of this change.",
+      "referenced_po_number": "PO-2026022",
+      "promised_date": "2026-01-01T00:00:00",
+      "requested_action": "confirm_receipt",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026001",
+      "po_number": "PO-2026001",
+      "supplier_id": "SUP-011",
+      "order_date": "2025-12-23T00:00:00",
+      "requested_delivery_date": "2026-01-05T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-BC-1819",
+          "qty": 297,
+          "unit_price": 49.72
+        },
+        {
+          "sku": "SKU-UV-0106",
+          "qty": 369,
+          "unit_price": 131.92
+        },
+        {
+          "sku": "SKU-XX-4835",
+          "qty": 239,
+          "unit_price": 142.45
+        },
+        {
+          "sku": "SKU-KD-9788",
+          "qty": 455,
+          "unit_price": 4.04
+        },
+        {
+          "sku": "SKU-KD-9788",
+          "qty": 91,
+          "unit_price": 168.31
+        }
+      ],
+      "cost_center": null,
+      "buyer_email": "contrerasangela@garcia.com",
+      "_ground_truth_missing": [
+        "cost_center"
+      ]
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5024",
+      "shipment_id": "SHP-5024",
+      "po_number": "PO-2026019",
+      "carrier": "Vantage Freight",
+      "tracking_number": "TRK99049027",
+      "ship_date": "2025-12-21T00:00:00",
+      "eta": "2025-12-28T00:00:00",
+      "origin": "Moonburgh",
+      "destination": "WH-PHX",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5006",
+      "shipment_id": "SHP-5006",
+      "po_number": "PO-2026024",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK85067165",
+      "ship_date": "2025-12-20T00:00:00",
+      "eta": "2025-12-25T00:00:00",
+      "origin": "Zimmermanchester",
+      "destination": "WH-DEN",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5033",
+      "shipment_id": "SHP-5033",
+      "po_number": "PO-2026010",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK67533963",
+      "ship_date": "2025-12-10T00:00:00",
+      "eta": "2025-12-18T00:00:00",
+      "origin": "Williamsfort",
+      "destination": "WH-PHX",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5016",
+      "shipment_id": "SHP-5016",
+      "po_number": "PO-2026007",
+      "carrier": null,
+      "tracking_number": null,
+      "ship_date": "2025-12-25T00:00:00",
+      "eta": "2025-12-27T00:00:00",
+      "origin": "New Crystalton",
+      "destination": "WH-DAL",
+      "status": "customs_hold",
+      "_ground_truth_missing": [
+        "carrier",
+        "tracking_number"
+      ]
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5020",
+      "shipment_id": "SHP-5020",
+      "po_number": "PO-2026021",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK97403447",
+      "ship_date": "2025-12-30T00:00:00",
+      "eta": "2026-01-08T00:00:00",
+      "origin": "Lake Jesusview",
+      "destination": "WH-DAL",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3018",
+      "exception_id": "EXC-3018",
+      "po_number": "PO-2026004",
+      "shipment_id": "SHP-5031",
+      "exception_type": "missing_docs",
+      "detected_at": "2026-01-04T00:00:00",
+      "severity": "critical",
+      "description": "Compliance documentation for this lot was not received alongside the shipment.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9029",
+      "sku": "SKU-PL-3619",
+      "warehouse_id": "WH-PHX",
+      "change_type": "receipt",
+      "quantity_delta": 81,
+      "recorded_by": "cwilson",
+      "timestamp": "2025-12-16T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5000",
+      "shipment_id": "SHP-5000",
+      "po_number": "PO-2026024",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK16272046",
+      "ship_date": "2025-12-18T00:00:00",
+      "eta": "2025-12-26T00:00:00",
+      "origin": "Jasonmouth",
+      "destination": "WH-ATL",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9009",
+      "sku": "SKU-TT-6383",
+      "warehouse_id": "WH-DAL",
+      "change_type": "adjustment",
+      "quantity_delta": 225,
+      "recorded_by": "khill",
+      "timestamp": "2025-12-31T00:00:00",
+      "reason_code": "RC-8",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7019",
+      "sender": "elizabeth65@pugh.com",
+      "subject": "PO status",
+      "received_at": "2025-12-21T00:00:00",
+      "body": "Quality hold placed on the last lot for PO-2026009. Investigating and will advise on new promised date: January 04.",
+      "referenced_po_number": null,
+      "promised_date": "2026-01-04T00:00:00",
+      "requested_action": "await_update",
+      "_ground_truth_missing": [
+        "referenced_po_number"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026015",
+      "po_number": "PO-2026015",
+      "supplier_id": "SUP-015",
+      "order_date": "2025-11-27T00:00:00",
+      "requested_delivery_date": "2025-12-09T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-MO-5341",
+          "qty": 107,
+          "unit_price": 129.87
+        },
+        {
+          "sku": "SKU-JS-8161",
+          "qty": 226,
+          "unit_price": 46.08
+        }
+      ],
+      "cost_center": "CC-138",
+      "buyer_email": "mlam@williams-graham.net",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026025",
+      "po_number": "PO-2026025",
+      "supplier_id": "SUP-002",
+      "order_date": "2025-12-18T00:00:00",
+      "requested_delivery_date": "2026-01-03T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-GM-0133",
+          "qty": 167,
+          "unit_price": 89.1
+        },
+        {
+          "sku": "SKU-EP-8425",
+          "qty": 417,
+          "unit_price": 233.4
+        }
+      ],
+      "cost_center": "CC-207",
+      "buyer_email": "danderson@schmidt.info",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026030",
+      "po_number": "PO-2026030",
+      "supplier_id": "SUP-011",
+      "order_date": "2025-12-07T00:00:00",
+      "requested_delivery_date": null,
+      "line_items": [
+        {
+          "sku": "SKU-NI-8347",
+          "qty": 145,
+          "unit_price": 11.59
+        },
+        {
+          "sku": "SKU-PY-2997",
+          "qty": null,
+          "unit_price": 84.6
+        }
+      ],
+      "cost_center": "CC-410",
+      "buyer_email": "drivera@brown-wall.biz",
+      "_ground_truth_missing": [
+        "line_items[].qty",
+        "requested_delivery_date"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026017",
+      "po_number": "PO-2026017",
+      "supplier_id": "SUP-015",
+      "order_date": "2025-12-01T00:00:00",
+      "requested_delivery_date": "2025-12-15T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-HM-7824",
+          "qty": 256,
+          "unit_price": 53.26
+        },
+        {
+          "sku": "SKU-GO-4828",
+          "qty": 472,
+          "unit_price": 16.43
+        },
+        {
+          "sku": "SKU-UU-6270",
+          "qty": 11,
+          "unit_price": 236.51
+        },
+        {
+          "sku": "SKU-NP-1395",
+          "qty": 484,
+          "unit_price": 188.72
+        }
+      ],
+      "cost_center": "CC-316",
+      "buyer_email": "william65@terry-spencer.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9026",
+      "sku": "SKU-WZ-7940",
+      "warehouse_id": "WH-PHX",
+      "change_type": "shipment",
+      "quantity_delta": 153,
+      "recorded_by": "thomasharvey",
+      "timestamp": "2026-01-03T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026027",
+      "po_number": "PO-2026027",
+      "supplier_id": "SUP-004",
+      "order_date": "2025-12-02T00:00:00",
+      "requested_delivery_date": "2025-12-19T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-BC-1819",
+          "qty": 101,
+          "unit_price": 177.43
+        },
+        {
+          "sku": "SKU-YY-2691",
+          "qty": 410,
+          "unit_price": 223.57
+        },
+        {
+          "sku": "SKU-KD-9788",
+          "qty": 352,
+          "unit_price": 207.72
+        },
+        {
+          "sku": "SKU-KD-9788",
+          "qty": 137,
+          "unit_price": 65.87
+        }
+      ],
+      "cost_center": "CC-119",
+      "buyer_email": "pgreen@ramirez.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026029",
+      "po_number": "PO-2026029",
+      "supplier_id": "SUP-018",
+      "order_date": "2025-12-16T00:00:00",
+      "requested_delivery_date": "2025-12-31T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-QI-7672",
+          "qty": 452,
+          "unit_price": 18.99
+        },
+        {
+          "sku": "SKU-ND-7234",
+          "qty": 152,
+          "unit_price": 85.9
+        },
+        {
+          "sku": "SKU-TT-6383",
+          "qty": 214,
+          "unit_price": 163.89
+        }
+      ],
+      "cost_center": "CC-114",
+      "buyer_email": "edwardreyes@mccarthy.biz",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9020",
+      "sku": "SKU-QN-9985",
+      "warehouse_id": "WH-SEA",
+      "change_type": "cycle_count",
+      "quantity_delta": -164,
+      "recorded_by": "linda71",
+      "timestamp": "2026-01-04T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5005",
+      "shipment_id": "SHP-5005",
+      "po_number": "PO-2026015",
+      "carrier": "Apex Cargo",
+      "tracking_number": "TRK14919058",
+      "ship_date": "2025-12-24T00:00:00",
+      "eta": "2025-12-31T00:00:00",
+      "origin": "Stanleyland",
+      "destination": "WH-DAL",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5026",
+      "shipment_id": "SHP-5026",
+      "po_number": "PO-2026020",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK56746807",
+      "ship_date": "2025-12-18T00:00:00",
+      "eta": "2025-12-28T00:00:00",
+      "origin": "West Johnnyville",
+      "destination": "WH-ATL",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5030",
+      "shipment_id": "SHP-5030",
+      "po_number": "PO-2026005",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK74846773",
+      "ship_date": "2025-12-25T00:00:00",
+      "eta": "2025-12-28T00:00:00",
+      "origin": "Arnoldfurt",
+      "destination": "WH-SEA",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7018",
+      "sender": "vdavis@cain-hawkins.org",
+      "subject": "Partial shipment notice",
+      "received_at": "2025-12-16T00:00:00",
+      "body": "Apologies for the delay on PO-2026021 \u2014 our production line had an issue. New promised date: January 24.",
+      "referenced_po_number": "PO-2026021",
+      "promised_date": "2026-01-24T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3002",
+      "exception_id": "EXC-3002",
+      "po_number": null,
+      "shipment_id": "SHP-5030",
+      "exception_type": "late_arrival",
+      "detected_at": "2025-12-23T00:00:00",
+      "severity": "low",
+      "description": "Delivery missed its scheduled window by 3 days; downstream production may be affected.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9022",
+      "sku": "SKU-JA-9784",
+      "warehouse_id": "WH-DAL",
+      "change_type": "adjustment",
+      "quantity_delta": 241,
+      "recorded_by": "zcoffey",
+      "timestamp": "2025-12-20T00:00:00",
+      "reason_code": "RC-4",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5027",
+      "shipment_id": "SHP-5027",
+      "po_number": "PO-2026012",
+      "carrier": null,
+      "tracking_number": "TRK68087603",
+      "ship_date": "2025-12-12T00:00:00",
+      "eta": null,
+      "origin": "Cindyfort",
+      "destination": null,
+      "status": "delayed",
+      "_ground_truth_missing": [
+        "carrier",
+        "destination",
+        "eta"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026026",
+      "po_number": "PO-2026026",
+      "supplier_id": "SUP-014",
+      "order_date": "2026-01-02T00:00:00",
+      "requested_delivery_date": "2026-01-11T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-JA-9784",
+          "qty": 409,
+          "unit_price": 135.47
+        }
+      ],
+      "cost_center": "CC-221",
+      "buyer_email": "jrivas@merritt-manning.info",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5010",
+      "shipment_id": "SHP-5010",
+      "po_number": "PO-2026005",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK31367837",
+      "ship_date": "2025-12-07T00:00:00",
+      "eta": "2025-12-11T00:00:00",
+      "origin": "Westtown",
+      "destination": "WH-PHX",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026028",
+      "po_number": "PO-2026028",
+      "supplier_id": "SUP-008",
+      "order_date": "2025-12-05T00:00:00",
+      "requested_delivery_date": "2025-12-17T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ME-8121",
+          "qty": 480,
+          "unit_price": 111.82
+        },
+        {
+          "sku": "SKU-OI-6965",
+          "qty": 430,
+          "unit_price": 191.39
+        }
+      ],
+      "cost_center": "CC-112",
+      "buyer_email": "scott43@rogers-orozco.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5002",
+      "shipment_id": "SHP-5002",
+      "po_number": "PO-2026007",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK00330923",
+      "ship_date": "2025-12-21T00:00:00",
+      "eta": "2025-12-25T00:00:00",
+      "origin": "South Elizabeth",
+      "destination": "WH-PHX",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5025",
+      "shipment_id": "SHP-5025",
+      "po_number": "PO-2026022",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK96717565",
+      "ship_date": "2025-12-27T00:00:00",
+      "eta": "2026-01-02T00:00:00",
+      "origin": "Elizabethburgh",
+      "destination": "WH-DAL",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5037",
+      "shipment_id": "SHP-5037",
+      "po_number": "PO-2026034",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK91343161",
+      "ship_date": "2026-01-07T00:00:00",
+      "eta": "2026-01-16T00:00:00",
+      "origin": "South Garrettport",
+      "destination": "WH-DEN",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3003",
+      "exception_id": "EXC-3003",
+      "po_number": "PO-2026023",
+      "shipment_id": null,
+      "exception_type": "quantity_mismatch",
+      "detected_at": "2025-12-22T00:00:00",
+      "severity": "high",
+      "description": "Carton count on arrival does not match the packing list; short by 28 units.",
+      "related_sku": "SKU-IC-1333",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026024",
+      "po_number": "PO-2026024",
+      "supplier_id": "SUP-001",
+      "order_date": "2025-11-21T00:00:00",
+      "requested_delivery_date": "2025-11-29T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ND-7234",
+          "qty": 76,
+          "unit_price": 153.81
+        },
+        {
+          "sku": "SKU-NP-1395",
+          "qty": 92,
+          "unit_price": 178.54
+        },
+        {
+          "sku": "SKU-AE-8393",
+          "qty": 371,
+          "unit_price": 104.08
+        }
+      ],
+      "cost_center": null,
+      "buyer_email": null,
+      "_ground_truth_missing": [
+        "buyer_email",
+        "cost_center"
+      ]
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5003",
+      "shipment_id": "SHP-5003",
+      "po_number": "PO-2026010",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK93745299",
+      "ship_date": "2026-01-03T00:00:00",
+      "eta": "2026-01-12T00:00:00",
+      "origin": "Port Loriport",
+      "destination": "WH-DAL",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5018",
+      "shipment_id": "SHP-5018",
+      "po_number": "PO-2026034",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK86774964",
+      "ship_date": "2025-12-23T00:00:00",
+      "eta": "2026-01-01T00:00:00",
+      "origin": "New Susanville",
+      "destination": "WH-PHX",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9012",
+      "sku": "SKU-DK-7736",
+      "warehouse_id": "WH-DAL",
+      "change_type": "adjustment",
+      "quantity_delta": 393,
+      "recorded_by": "jeffery39",
+      "timestamp": "2026-01-06T00:00:00",
+      "reason_code": "RC-8",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5023",
+      "shipment_id": "SHP-5023",
+      "po_number": "PO-2026028",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK87719065",
+      "ship_date": "2026-01-06T00:00:00",
+      "eta": "2026-01-09T00:00:00",
+      "origin": "Anthonybury",
+      "destination": "WH-DAL",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5034",
+      "shipment_id": "SHP-5034",
+      "po_number": "PO-2026012",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK66270289",
+      "ship_date": "2025-12-22T00:00:00",
+      "eta": "2025-12-25T00:00:00",
+      "origin": "Mollymouth",
+      "destination": "WH-SEA",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5028",
+      "shipment_id": "SHP-5028",
+      "po_number": "PO-2026031",
+      "carrier": null,
+      "tracking_number": "TRK70348247",
+      "ship_date": "2025-12-14T00:00:00",
+      "eta": null,
+      "origin": "Martinezbury",
+      "destination": "WH-SEA",
+      "status": "delivered",
+      "_ground_truth_missing": [
+        "carrier",
+        "eta"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026033",
+      "po_number": "PO-2026033",
+      "supplier_id": "SUP-006",
+      "order_date": "2025-12-16T00:00:00",
+      "requested_delivery_date": "2025-12-23T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-PL-3619",
+          "qty": 10,
+          "unit_price": 74.67
+        },
+        {
+          "sku": "SKU-DY-2832",
+          "qty": 230,
+          "unit_price": 189.12
+        },
+        {
+          "sku": "SKU-PY-2997",
+          "qty": 345,
+          "unit_price": 79.03
+        },
+        {
+          "sku": "SKU-ZT-7015",
+          "qty": 236,
+          "unit_price": 162.96
+        },
+        {
+          "sku": "SKU-TT-6383",
+          "qty": 252,
+          "unit_price": 191.01
+        }
+      ],
+      "cost_center": "CC-245",
+      "buyer_email": "brobinson@johnson-rogers.biz",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026034",
+      "po_number": "PO-2026034",
+      "supplier_id": "SUP-003",
+      "order_date": "2025-12-31T00:00:00",
+      "requested_delivery_date": "2026-01-19T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-YY-2691",
+          "qty": 57,
+          "unit_price": 196.88
+        },
+        {
+          "sku": "SKU-QT-7468",
+          "qty": 130,
+          "unit_price": 162.29
+        },
+        {
+          "sku": "SKU-XX-4835",
+          "qty": 422,
+          "unit_price": 49.79
+        },
+        {
+          "sku": "SKU-BC-1819",
+          "qty": 33,
+          "unit_price": 60.65
+        },
+        {
+          "sku": "SKU-IQ-7182",
+          "qty": 322,
+          "unit_price": 204.31
+        }
+      ],
+      "cost_center": "CC-312",
+      "buyer_email": "marycalhoun@ferguson.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9008",
+      "sku": "SKU-FF-3039",
+      "warehouse_id": "WH-DEN",
+      "change_type": "receipt",
+      "quantity_delta": -43,
+      "recorded_by": "victoria40",
+      "timestamp": "2025-12-31T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3008",
+      "exception_id": "EXC-3008",
+      "po_number": "PO-2026001",
+      "shipment_id": "SHP-5033",
+      "exception_type": "quantity_mismatch",
+      "detected_at": "2025-12-27T00:00:00",
+      "severity": "critical",
+      "description": "Carton count on arrival does not match the packing list; short by 38 units.",
+      "related_sku": "SKU-JX-4893",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9017",
+      "sku": "SKU-QN-9985",
+      "warehouse_id": "WH-DEN",
+      "change_type": "adjustment",
+      "quantity_delta": 250,
+      "recorded_by": null,
+      "timestamp": "2025-12-19T00:00:00",
+      "reason_code": "RC-9",
+      "_ground_truth_missing": [
+        "recorded_by"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026004",
+      "po_number": "PO-2026004",
+      "supplier_id": "SUP-015",
+      "order_date": "2026-01-02T00:00:00",
+      "requested_delivery_date": "2026-01-19T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-DP-1781",
+          "qty": 489,
+          "unit_price": 164.84
+        },
+        {
+          "sku": "SKU-WZ-7940",
+          "qty": 321,
+          "unit_price": 153.31
+        },
+        {
+          "sku": "SKU-BL-3315",
+          "qty": 383,
+          "unit_price": 60.64
+        }
+      ],
+      "cost_center": "CC-238",
+      "buyer_email": "cookdavid@martin-ramos.biz",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3010",
+      "exception_id": "EXC-3010",
+      "po_number": "PO-2026005",
+      "shipment_id": "SHP-5027",
+      "exception_type": "missing_docs",
+      "detected_at": "2026-01-05T00:00:00",
+      "severity": "critical",
+      "description": "Certificate of origin is missing from the shipment paperwork.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7004",
+      "sender": "bruce43@rush.com",
+      "subject": "PO status",
+      "received_at": "2026-01-01T00:00:00",
+      "body": "Quality hold placed on the last lot for PO-2026008. Investigating and will advise on new promised date: January 25.",
+      "referenced_po_number": null,
+      "promised_date": "2026-01-25T00:00:00",
+      "requested_action": "await_update",
+      "_ground_truth_missing": [
+        "referenced_po_number"
+      ]
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3009",
+      "exception_id": "EXC-3009",
+      "po_number": "PO-2026020",
+      "shipment_id": null,
+      "exception_type": "damaged",
+      "detected_at": "2025-12-23T00:00:00",
+      "severity": "low",
+      "description": "3 of the cartons in this shipment arrived with visible water damage; contents flagged for inspection.",
+      "related_sku": "SKU-TE-9593",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9013",
+      "sku": "SKU-BL-3315",
+      "warehouse_id": "WH-PHX",
+      "change_type": "cycle_count",
+      "quantity_delta": 153,
+      "recorded_by": "erica21",
+      "timestamp": "2025-12-26T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7005",
+      "sender": "darleneharper@williams.com",
+      "subject": "RE: Delivery update",
+      "received_at": "2025-12-30T00:00:00",
+      "body": "Please note a partial shipment against PO-2026018 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026018",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9010",
+      "sku": "SKU-UU-6270",
+      "warehouse_id": "WH-ATL",
+      "change_type": "shipment",
+      "quantity_delta": 320,
+      "recorded_by": "lozanojulie",
+      "timestamp": "2025-12-20T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026021",
+      "po_number": "PO-2026021",
+      "supplier_id": "SUP-003",
+      "order_date": "2026-01-05T00:00:00",
+      "requested_delivery_date": "2026-01-10T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ZR-0305",
+          "qty": 145,
+          "unit_price": 96.5
+        },
+        {
+          "sku": "SKU-IC-1333",
+          "qty": 340,
+          "unit_price": 73.75
+        },
+        {
+          "sku": "SKU-HJ-8710",
+          "qty": 485,
+          "unit_price": 181.07
+        }
+      ],
+      "cost_center": null,
+      "buyer_email": "clarence34@drake.com",
+      "_ground_truth_missing": [
+        "cost_center"
+      ]
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7022",
+      "sender": "lynchdiane@adams.com",
+      "subject": "PO status",
+      "received_at": null,
+      "body": "Quality hold placed on the last lot for PO-2026002. Investigating and will advise on new promised date: January 23.",
+      "referenced_po_number": "PO-2026002",
+      "promised_date": "2026-01-23T00:00:00",
+      "requested_action": "await_update",
+      "_ground_truth_missing": [
+        "received_at"
+      ]
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7000",
+      "sender": "torrestravis@young.com",
+      "subject": "Quality hold",
+      "received_at": "2025-12-25T00:00:00",
+      "body": "Quality hold placed on the last lot for PO-2026003. Investigating and will advise on new promised date: January 29.",
+      "referenced_po_number": "PO-2026003",
+      "promised_date": "2026-01-29T00:00:00",
+      "requested_action": "await_update",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9006",
+      "sku": "SKU-DU-6566",
+      "warehouse_id": "WH-SEA",
+      "change_type": "receipt",
+      "quantity_delta": 45,
+      "recorded_by": "gcastaneda",
+      "timestamp": "2025-12-21T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3005",
+      "exception_id": "EXC-3005",
+      "po_number": "PO-2026030",
+      "shipment_id": "SHP-5006",
+      "exception_type": "damaged",
+      "detected_at": "2026-01-01T00:00:00",
+      "severity": "high",
+      "description": "Product arrived with cracked casings on 11 units; supplier notified and replacement requested.",
+      "related_sku": "SKU-UD-5940",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026002",
+      "po_number": "PO-2026002",
+      "supplier_id": "SUP-013",
+      "order_date": "2025-12-07T00:00:00",
+      "requested_delivery_date": "2025-12-14T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-DK-7736",
+          "qty": 245,
+          "unit_price": 129.85
+        }
+      ],
+      "cost_center": "CC-382",
+      "buyer_email": "josephjacobs@cooper.net",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9027",
+      "sku": "SKU-DP-1781",
+      "warehouse_id": "WH-DAL",
+      "change_type": "cycle_count",
+      "quantity_delta": 267,
+      "recorded_by": "rose31",
+      "timestamp": "2025-12-25T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5019",
+      "shipment_id": "SHP-5019",
+      "po_number": "PO-2026005",
+      "carrier": "Apex Cargo",
+      "tracking_number": "TRK33412328",
+      "ship_date": "2025-12-21T00:00:00",
+      "eta": "2025-12-30T00:00:00",
+      "origin": "East Aaronmouth",
+      "destination": "WH-ATL",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026011",
+      "po_number": "PO-2026011",
+      "supplier_id": "SUP-010",
+      "order_date": "2025-11-25T00:00:00",
+      "requested_delivery_date": "2025-12-12T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ND-7234",
+          "qty": 74,
+          "unit_price": 32.99
+        },
+        {
+          "sku": "SKU-IQ-7182",
+          "qty": 494,
+          "unit_price": 133.08
+        },
+        {
+          "sku": "SKU-NP-1395",
+          "qty": 280,
+          "unit_price": 209.7
+        },
+        {
+          "sku": "SKU-MU-2880",
+          "qty": 118,
+          "unit_price": 223.12
+        },
+        {
+          "sku": "SKU-QT-7468",
+          "qty": 383,
+          "unit_price": 166.34
+        }
+      ],
+      "cost_center": "CC-443",
+      "buyer_email": "ybailey@walker.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7001",
+      "sender": "qchavez@horton.com",
+      "subject": "Shipment delay notice",
+      "received_at": "2026-01-05T00:00:00",
+      "body": "Please note a partial shipment against PO-2026014 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026014",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3007",
+      "exception_id": "EXC-3007",
+      "po_number": null,
+      "shipment_id": "SHP-5021",
+      "exception_type": "late_arrival",
+      "detected_at": "2026-01-01T00:00:00",
+      "severity": "low",
+      "description": "Carrier reported a 3-day delay caused by port congestion at the origin hub.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9018",
+      "sku": "SKU-IQ-7182",
+      "warehouse_id": "WH-DAL",
+      "change_type": "receipt",
+      "quantity_delta": 146,
+      "recorded_by": "alyssa42",
+      "timestamp": "2026-01-04T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3004",
+      "exception_id": "EXC-3004",
+      "po_number": "PO-2026018",
+      "shipment_id": null,
+      "exception_type": "late_arrival",
+      "detected_at": "2026-01-03T00:00:00",
+      "severity": "low",
+      "description": "Delivery missed its scheduled window by 2 days; downstream production may be affected.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9000",
+      "sku": "SKU-NI-8347",
+      "warehouse_id": "WH-PHX",
+      "change_type": "shipment",
+      "quantity_delta": 303,
+      "recorded_by": "jesselittle",
+      "timestamp": "2025-12-18T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3013",
+      "exception_id": "EXC-3013",
+      "po_number": "PO-2026008",
+      "shipment_id": "SHP-5014",
+      "exception_type": "customs_hold",
+      "detected_at": "2026-01-01T00:00:00",
+      "severity": "low",
+      "description": "Import clearance is delayed \u2014 customs office is requesting an updated commercial invoice.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026016",
+      "po_number": "PO-2026016",
+      "supplier_id": "SUP-001",
+      "order_date": "2025-12-26T00:00:00",
+      "requested_delivery_date": "2026-01-02T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-AO-0838",
+          "qty": 343,
+          "unit_price": 239.83
+        }
+      ],
+      "cost_center": "CC-485",
+      "buyer_email": "michaeljones@mccall.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5015",
+      "shipment_id": "SHP-5015",
+      "po_number": "PO-2026025",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK84271094",
+      "ship_date": "2025-12-30T00:00:00",
+      "eta": "2026-01-02T00:00:00",
+      "origin": "Mendozamouth",
+      "destination": "WH-SEA",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5004",
+      "shipment_id": "SHP-5004",
+      "po_number": "PO-2026033",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK19049663",
+      "ship_date": "2025-12-23T00:00:00",
+      "eta": "2026-01-04T00:00:00",
+      "origin": "New Hannahbury",
+      "destination": "WH-ATL",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5009",
+      "shipment_id": "SHP-5009",
+      "po_number": "PO-2026031",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK27354549",
+      "ship_date": "2026-01-02T00:00:00",
+      "eta": "2026-01-10T00:00:00",
+      "origin": "Angelahaven",
+      "destination": "WH-DAL",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3014",
+      "exception_id": "EXC-3014",
+      "po_number": "PO-2026026",
+      "shipment_id": null,
+      "exception_type": "wrong_item",
+      "detected_at": "2026-01-03T00:00:00",
+      "severity": "critical",
+      "description": "Item received does not match the description or SKU on file for this PO.",
+      "related_sku": "SKU-KA-8013",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5039",
+      "shipment_id": "SHP-5039",
+      "po_number": "PO-2026002",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK92221969",
+      "ship_date": "2025-12-23T00:00:00",
+      "eta": "2026-01-01T00:00:00",
+      "origin": "South Roberta",
+      "destination": "WH-SEA",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7014",
+      "sender": "hvang@chavez-jacobs.com",
+      "subject": "RE: Delivery update",
+      "received_at": "2025-12-27T00:00:00",
+      "body": "Please note a partial shipment against PO-2026015 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026015",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9014",
+      "sku": "SKU-FF-3039",
+      "warehouse_id": "WH-DAL",
+      "change_type": "cycle_count",
+      "quantity_delta": -7,
+      "recorded_by": "parkerscott",
+      "timestamp": "2025-12-23T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7020",
+      "sender": "caroline51@romero.com",
+      "subject": "PO status",
+      "received_at": "2025-12-17T00:00:00",
+      "body": "Apologies for the delay on PO-2026020 \u2014 our production line had an issue. New promised date: December 31.",
+      "referenced_po_number": "PO-2026020",
+      "promised_date": "2025-12-31T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3019",
+      "exception_id": "EXC-3019",
+      "po_number": "PO-2026020",
+      "shipment_id": "SHP-5004",
+      "exception_type": "missing_docs",
+      "detected_at": "2026-01-05T00:00:00",
+      "severity": "critical",
+      "description": "Required customs declaration was not included with this shipment.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026032",
+      "po_number": "PO-2026032",
+      "supplier_id": "SUP-013",
+      "order_date": "2025-12-23T00:00:00",
+      "requested_delivery_date": "2026-01-02T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-IC-1333",
+          "qty": 219,
+          "unit_price": 79.97
+        },
+        {
+          "sku": "SKU-DP-1781",
+          "qty": 161,
+          "unit_price": 134.17
+        },
+        {
+          "sku": "SKU-MO-5341",
+          "qty": 225,
+          "unit_price": 160.42
+        }
+      ],
+      "cost_center": "CC-415",
+      "buyer_email": "acastaneda@adkins.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9025",
+      "sku": "SKU-FF-3039",
+      "warehouse_id": "WH-DAL",
+      "change_type": "adjustment",
+      "quantity_delta": -191,
+      "recorded_by": "brenda51",
+      "timestamp": "2025-12-30T00:00:00",
+      "reason_code": "RC-5",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9024",
+      "sku": "SKU-HM-7824",
+      "warehouse_id": "WH-SEA",
+      "change_type": "shipment",
+      "quantity_delta": -54,
+      "recorded_by": "amanda75",
+      "timestamp": "2025-12-23T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9021",
+      "sku": "SKU-XX-4835",
+      "warehouse_id": "WH-DEN",
+      "change_type": "adjustment",
+      "quantity_delta": 244,
+      "recorded_by": "karenperez",
+      "timestamp": "2025-12-19T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": [
+        "reason_code"
+      ]
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5036",
+      "shipment_id": "SHP-5036",
+      "po_number": "PO-2026028",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK59615865",
+      "ship_date": "2025-12-24T00:00:00",
+      "eta": "2026-01-02T00:00:00",
+      "origin": "Brennanton",
+      "destination": "WH-DAL",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026012",
+      "po_number": "PO-2026012",
+      "supplier_id": "SUP-002",
+      "order_date": "2025-12-19T00:00:00",
+      "requested_delivery_date": "2026-01-03T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ZT-7015",
+          "qty": 71,
+          "unit_price": 61.38
+        },
+        {
+          "sku": "SKU-WZ-7940",
+          "qty": 183,
+          "unit_price": 7.5
+        },
+        {
+          "sku": "SKU-AE-8393",
+          "qty": 127,
+          "unit_price": 142.25
+        },
+        {
+          "sku": "SKU-OI-1043",
+          "qty": 46,
+          "unit_price": 170.61
+        },
+        {
+          "sku": "SKU-AO-0838",
+          "qty": 127,
+          "unit_price": 18.51
+        }
+      ],
+      "cost_center": "CC-136",
+      "buyer_email": "emurphy@bell-hicks.net",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7011",
+      "sender": "acostaregina@boyd.com",
+      "subject": "Quality hold",
+      "received_at": "2025-12-27T00:00:00",
+      "body": "We need to update the delivery window for PO-2026034. New promised date: January 04. Please confirm receipt of this change.",
+      "referenced_po_number": "PO-2026034",
+      "promised_date": "2026-01-04T00:00:00",
+      "requested_action": "confirm_receipt",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026008",
+      "po_number": "PO-2026008",
+      "supplier_id": "SUP-009",
+      "order_date": "2026-01-06T00:00:00",
+      "requested_delivery_date": null,
+      "line_items": [
+        {
+          "sku": "SKU-DP-2624",
+          "qty": 463,
+          "unit_price": 130.03
+        }
+      ],
+      "cost_center": null,
+      "buyer_email": "sarayoung@cherry.biz",
+      "_ground_truth_missing": [
+        "cost_center",
+        "requested_delivery_date"
+      ]
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5007",
+      "shipment_id": "SHP-5007",
+      "po_number": "PO-2026024",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK28498776",
+      "ship_date": "2025-12-07T00:00:00",
+      "eta": "2025-12-09T00:00:00",
+      "origin": "Marcusbury",
+      "destination": "WH-DAL",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7008",
+      "sender": "lauren10@smith.org",
+      "subject": "Quality hold",
+      "received_at": "2025-12-16T00:00:00",
+      "body": "Apologies for the delay on PO-2026023 \u2014 our production line had an issue. New promised date: January 03.",
+      "referenced_po_number": "PO-2026023",
+      "promised_date": "2026-01-03T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9005",
+      "sku": "SKU-GQ-7631",
+      "warehouse_id": "WH-PHX",
+      "change_type": "adjustment",
+      "quantity_delta": 252,
+      "recorded_by": null,
+      "timestamp": "2025-12-17T00:00:00",
+      "reason_code": "RC-4",
+      "_ground_truth_missing": [
+        "recorded_by"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026006",
+      "po_number": "PO-2026006",
+      "supplier_id": "SUP-005",
+      "order_date": "2026-01-01T00:00:00",
+      "requested_delivery_date": "2026-01-22T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-TE-9593",
+          "qty": 145,
+          "unit_price": 35.66
+        },
+        {
+          "sku": "SKU-YY-6064",
+          "qty": 297,
+          "unit_price": 130.51
+        },
+        {
+          "sku": "SKU-YY-6064",
+          "qty": 309,
+          "unit_price": 104.25
+        },
+        {
+          "sku": "SKU-NI-8347",
+          "qty": 214,
+          "unit_price": 88.47
+        }
+      ],
+      "cost_center": "CC-352",
+      "buyer_email": "russellwilliams@nolan-flynn.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9001",
+      "sku": "SKU-YY-2691",
+      "warehouse_id": "WH-DAL",
+      "change_type": "cycle_count",
+      "quantity_delta": -93,
+      "recorded_by": "ascott",
+      "timestamp": "2025-12-21T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9011",
+      "sku": "SKU-ND-7234",
+      "warehouse_id": "WH-PHX",
+      "change_type": "adjustment",
+      "quantity_delta": 148,
+      "recorded_by": "kimberly39",
+      "timestamp": "2026-01-01T00:00:00",
+      "reason_code": "RC-5",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7012",
+      "sender": "bboone@rodriguez.com",
+      "subject": "RE: Delivery update",
+      "received_at": "2025-12-31T00:00:00",
+      "body": "We need to update the delivery window for PO-2026009. New promised date: January 28. Please confirm receipt of this change.",
+      "referenced_po_number": "PO-2026009",
+      "promised_date": "2026-01-28T00:00:00",
+      "requested_action": "confirm_receipt",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5017",
+      "shipment_id": "SHP-5017",
+      "po_number": "PO-2026023",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK22941318",
+      "ship_date": "2026-01-02T00:00:00",
+      "eta": "2026-01-06T00:00:00",
+      "origin": "Obrienbury",
+      "destination": "WH-PHX",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5014",
+      "shipment_id": "SHP-5014",
+      "po_number": "PO-2026019",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK43524082",
+      "ship_date": "2025-12-16T00:00:00",
+      "eta": "2025-12-27T00:00:00",
+      "origin": "Brandonton",
+      "destination": "WH-DEN",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5001",
+      "shipment_id": "SHP-5001",
+      "po_number": "PO-2026006",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK56464170",
+      "ship_date": "2025-12-06T00:00:00",
+      "eta": "2025-12-11T00:00:00",
+      "origin": "West Jeffreyland",
+      "destination": "WH-ATL",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5012",
+      "shipment_id": "SHP-5012",
+      "po_number": "PO-2026034",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK68557444",
+      "ship_date": "2025-12-07T00:00:00",
+      "eta": "2025-12-14T00:00:00",
+      "origin": "North Jennifer",
+      "destination": "WH-ATL",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5011",
+      "shipment_id": "SHP-5011",
+      "po_number": "PO-2026020",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK14363495",
+      "ship_date": "2025-12-30T00:00:00",
+      "eta": "2026-01-08T00:00:00",
+      "origin": "Transtad",
+      "destination": "WH-DAL",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026020",
+      "po_number": "PO-2026020",
+      "supplier_id": "SUP-017",
+      "order_date": "2025-12-30T00:00:00",
+      "requested_delivery_date": "2026-01-14T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-JX-4893",
+          "qty": 346,
+          "unit_price": 141.12
+        }
+      ],
+      "cost_center": "CC-233",
+      "buyer_email": "yleon@jackson.org",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9003",
+      "sku": "SKU-NP-1395",
+      "warehouse_id": "WH-DAL",
+      "change_type": "adjustment",
+      "quantity_delta": -82,
+      "recorded_by": "charleslandry",
+      "timestamp": "2025-12-28T00:00:00",
+      "reason_code": "RC-9",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5031",
+      "shipment_id": "SHP-5031",
+      "po_number": "PO-2026019",
+      "carrier": "Vantage Freight",
+      "tracking_number": "TRK39821465",
+      "ship_date": "2026-01-02T00:00:00",
+      "eta": "2026-01-13T00:00:00",
+      "origin": "Loriport",
+      "destination": "WH-DEN",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5032",
+      "shipment_id": "SHP-5032",
+      "po_number": "PO-2026013",
+      "carrier": "Apex Cargo",
+      "tracking_number": "TRK49972787",
+      "ship_date": "2025-12-19T00:00:00",
+      "eta": "2025-12-31T00:00:00",
+      "origin": "Martinside",
+      "destination": "WH-DEN",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7003",
+      "sender": "scottsampson@garcia-jennings.net",
+      "subject": "PO status",
+      "received_at": "2025-12-29T00:00:00",
+      "body": "Please note a partial shipment against PO-2026005 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026005",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5021",
+      "shipment_id": "SHP-5021",
+      "po_number": "PO-2026016",
+      "carrier": "Apex Cargo",
+      "tracking_number": "TRK93618324",
+      "ship_date": "2025-12-28T00:00:00",
+      "eta": "2026-01-03T00:00:00",
+      "origin": "North Brian",
+      "destination": "WH-SEA",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3016",
+      "exception_id": "EXC-3016",
+      "po_number": "PO-2026019",
+      "shipment_id": null,
+      "exception_type": "quantity_mismatch",
+      "detected_at": "2025-12-28T00:00:00",
+      "severity": "high",
+      "description": "Carton count on arrival does not match the packing list; short by 36 units.",
+      "related_sku": "SKU-ND-7234",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026031",
+      "po_number": "PO-2026031",
+      "supplier_id": "SUP-011",
+      "order_date": "2025-12-25T00:00:00",
+      "requested_delivery_date": "2026-01-02T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-HS-1845",
+          "qty": 230,
+          "unit_price": 19.12
+        },
+        {
+          "sku": "SKU-IC-1333",
+          "qty": 481,
+          "unit_price": 80.92
+        }
+      ],
+      "cost_center": "CC-468",
+      "buyer_email": "gateskathy@woods-bender.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026005",
+      "po_number": "PO-2026005",
+      "supplier_id": "SUP-011",
+      "order_date": "2025-12-31T00:00:00",
+      "requested_delivery_date": "2026-01-11T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-XX-4835",
+          "qty": 360,
+          "unit_price": 79.52
+        },
+        {
+          "sku": "SKU-ND-7234",
+          "qty": 407,
+          "unit_price": 15.79
+        },
+        {
+          "sku": "SKU-ME-8121",
+          "qty": 26,
+          "unit_price": 193.7
+        },
+        {
+          "sku": "SKU-GO-4828",
+          "qty": 147,
+          "unit_price": 18.22
+        },
+        {
+          "sku": "SKU-IN-9911",
+          "qty": 492,
+          "unit_price": 137.21
+        }
+      ],
+      "cost_center": "CC-435",
+      "buyer_email": "rodriguezsierra@mckee.org",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026022",
+      "po_number": "PO-2026022",
+      "supplier_id": "SUP-006",
+      "order_date": "2025-12-13T00:00:00",
+      "requested_delivery_date": "2026-01-01T00:00:00",
+      "line_items": [
+        {
+          "sku": null,
+          "qty": 135,
+          "unit_price": 90.26
+        }
+      ],
+      "cost_center": "CC-378",
+      "buyer_email": "sanchezthomas@gibson.org",
+      "_ground_truth_missing": [
+        "line_items[].sku"
+      ]
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7023",
+      "sender": "michael22@sandoval.com",
+      "subject": "RE: Delivery update",
+      "received_at": "2025-12-18T00:00:00",
+      "body": "We need to update the delivery window for PO-2026006. New promised date: January 15. Please confirm receipt of this change.",
+      "referenced_po_number": "PO-2026006",
+      "promised_date": "2026-01-15T00:00:00",
+      "requested_action": "confirm_receipt",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7021",
+      "sender": "megan51@andrews-aguirre.net",
+      "subject": "RE: Delivery update",
+      "received_at": "2025-12-31T00:00:00",
+      "body": "Hi team, following up on PO-2026026. We can now confirm the shipment will be ready by January 16. Let us know if that works.",
+      "referenced_po_number": "PO-2026026",
+      "promised_date": null,
+      "requested_action": "confirm_receipt",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3001",
+      "exception_id": "EXC-3001",
+      "po_number": "PO-2026029",
+      "shipment_id": "SHP-5006",
+      "exception_type": "wrong_item",
+      "detected_at": "2025-12-31T00:00:00",
+      "severity": "critical",
+      "description": "Item received does not match the description or SKU on file for this PO.",
+      "related_sku": "SKU-HJ-8710",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9016",
+      "sku": "SKU-UU-6270",
+      "warehouse_id": "WH-ATL",
+      "change_type": "cycle_count",
+      "quantity_delta": 307,
+      "recorded_by": "julie23",
+      "timestamp": "2025-12-17T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5008",
+      "shipment_id": "SHP-5008",
+      "po_number": "PO-2026034",
+      "carrier": "Vantage Freight",
+      "tracking_number": "TRK14737996",
+      "ship_date": "2026-01-01T00:00:00",
+      "eta": "2026-01-12T00:00:00",
+      "origin": "Anthonymouth",
+      "destination": "WH-ATL",
+      "status": "customs_hold",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7002",
+      "sender": "fpena@russell.com",
+      "subject": "RE: Delivery update",
+      "received_at": "2026-01-05T00:00:00",
+      "body": "Apologies for the delay on PO-2026016 \u2014 our production line had an issue. New promised date: January 21.",
+      "referenced_po_number": "PO-2026016",
+      "promised_date": "2026-01-21T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3000",
+      "exception_id": "EXC-3000",
+      "po_number": "PO-2026027",
+      "shipment_id": "SHP-5007",
+      "exception_type": "wrong_item",
+      "detected_at": "2025-12-27T00:00:00",
+      "severity": "critical",
+      "description": "Packing slip lists a different product than what was ordered; verifying with the supplier before accepting.",
+      "related_sku": "SKU-ZT-7015",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9028",
+      "sku": "SKU-AQ-9091",
+      "warehouse_id": "WH-PHX",
+      "change_type": "cycle_count",
+      "quantity_delta": -91,
+      "recorded_by": "tblankenship",
+      "timestamp": "2025-12-23T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026013",
+      "po_number": "PO-2026013",
+      "supplier_id": "SUP-004",
+      "order_date": "2025-12-08T00:00:00",
+      "requested_delivery_date": "2025-12-26T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-DY-2832",
+          "qty": 286,
+          "unit_price": 33.92
+        },
+        {
+          "sku": "SKU-EP-8425",
+          "qty": 461,
+          "unit_price": 138.12
+        },
+        {
+          "sku": "SKU-IQ-7182",
+          "qty": 134,
+          "unit_price": 188.85
+        },
+        {
+          "sku": "SKU-KD-9788",
+          "qty": 218,
+          "unit_price": 47.72
+        }
+      ],
+      "cost_center": "CC-281",
+      "buyer_email": "sheila14@carpenter.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5022",
+      "shipment_id": "SHP-5022",
+      "po_number": "PO-2026005",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK49947174",
+      "ship_date": "2025-12-18T00:00:00",
+      "eta": "2025-12-26T00:00:00",
+      "origin": "Benderhaven",
+      "destination": "WH-PHX",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026007",
+      "po_number": "PO-2026007",
+      "supplier_id": "SUP-014",
+      "order_date": "2025-11-24T00:00:00",
+      "requested_delivery_date": "2025-12-01T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-TE-9593",
+          "qty": 331,
+          "unit_price": 40.5
+        }
+      ],
+      "cost_center": "CC-297",
+      "buyer_email": "jason31@deleon-henson.biz",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7017",
+      "sender": "elizabeth52@leblanc.com",
+      "subject": "Partial shipment notice",
+      "received_at": "2025-12-22T00:00:00",
+      "body": "Apologies for the delay on PO-2026021 \u2014 our production line had an issue. New promised date: January 07.",
+      "referenced_po_number": null,
+      "promised_date": null,
+      "requested_action": null,
+      "_ground_truth_missing": [
+        "promised_date",
+        "referenced_po_number"
+      ]
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3006",
+      "exception_id": "EXC-3006",
+      "po_number": "PO-2026027",
+      "shipment_id": null,
+      "exception_type": "missing_docs",
+      "detected_at": "2025-12-21T00:00:00",
+      "severity": "high",
+      "description": "Certificate of origin is missing from the shipment paperwork.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5029",
+      "shipment_id": "SHP-5029",
+      "po_number": "PO-2026025",
+      "carrier": "Meridian Transport",
+      "tracking_number": "TRK24808613",
+      "ship_date": "2025-12-10T00:00:00",
+      "eta": "2025-12-13T00:00:00",
+      "origin": "South Staceyberg",
+      "destination": "WH-SEA",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7016",
+      "sender": "dmorgan@perry-davis.biz",
+      "subject": "Partial shipment notice",
+      "received_at": "2025-12-16T00:00:00",
+      "body": "Apologies for the delay on PO-2026029 \u2014 our production line had an issue. New promised date: January 02.",
+      "referenced_po_number": "PO-2026029",
+      "promised_date": "2026-01-02T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9007",
+      "sku": "SKU-AE-8393",
+      "warehouse_id": "WH-PHX",
+      "change_type": "receipt",
+      "quantity_delta": -105,
+      "recorded_by": "patrickhoward",
+      "timestamp": "2025-12-23T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5013",
+      "shipment_id": "SHP-5013",
+      "po_number": "PO-2026015",
+      "carrier": "Coldline Logistics",
+      "tracking_number": "TRK51823374",
+      "ship_date": "2025-12-15T00:00:00",
+      "eta": "2025-12-24T00:00:00",
+      "origin": "Tinaborough",
+      "destination": "WH-DEN",
+      "status": "delayed",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3011",
+      "exception_id": "EXC-3011",
+      "po_number": "PO-2026018",
+      "shipment_id": "SHP-5037",
+      "exception_type": "late_arrival",
+      "detected_at": "2026-01-05T00:00:00",
+      "severity": "high",
+      "description": "Delivery missed its scheduled window by 2 days; downstream production may be affected.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026010",
+      "po_number": "PO-2026010",
+      "supplier_id": "SUP-019",
+      "order_date": "2025-12-01T00:00:00",
+      "requested_delivery_date": "2025-12-08T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-ND-7234",
+          "qty": 482,
+          "unit_price": 128.46
+        },
+        {
+          "sku": "SKU-OI-1043",
+          "qty": 316,
+          "unit_price": 79.49
+        },
+        {
+          "sku": "SKU-BC-1819",
+          "qty": 67,
+          "unit_price": 223.16
+        },
+        {
+          "sku": "SKU-IQ-5346",
+          "qty": 435,
+          "unit_price": 194.11
+        },
+        {
+          "sku": "SKU-ZR-0305",
+          "qty": 39,
+          "unit_price": 59.71
+        }
+      ],
+      "cost_center": "CC-143",
+      "buyer_email": "erik16@garrison.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3012",
+      "exception_id": "EXC-3012",
+      "po_number": null,
+      "shipment_id": "SHP-5013",
+      "exception_type": "wrong_item",
+      "detected_at": "2025-12-30T00:00:00",
+      "severity": "medium",
+      "description": "Received SKU does not match the purchase order \u2014 supplier appears to have shipped the wrong item.",
+      "related_sku": "SKU-ND-7234",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9023",
+      "sku": "SKU-OG-0341",
+      "warehouse_id": "WH-ATL",
+      "change_type": "shipment",
+      "quantity_delta": -120,
+      "recorded_by": "christopher60",
+      "timestamp": "2026-01-04T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3015",
+      "exception_id": "EXC-3015",
+      "po_number": "PO-2026020",
+      "shipment_id": "SHP-5039",
+      "exception_type": "wrong_item",
+      "detected_at": "2026-01-04T00:00:00",
+      "severity": "high",
+      "description": "Item received does not match the description or SKU on file for this PO.",
+      "related_sku": "SKU-JN-2654",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026023",
+      "po_number": "PO-2026023",
+      "supplier_id": "SUP-007",
+      "order_date": "2025-11-29T00:00:00",
+      "requested_delivery_date": "2025-12-12T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-UD-5940",
+          "qty": 465,
+          "unit_price": 27.92
+        },
+        {
+          "sku": "SKU-AE-8393",
+          "qty": 89,
+          "unit_price": 67.18
+        },
+        {
+          "sku": "SKU-PY-2997",
+          "qty": 117,
+          "unit_price": 172.93
+        }
+      ],
+      "cost_center": "CC-358",
+      "buyer_email": null,
+      "_ground_truth_missing": [
+        "buyer_email"
+      ]
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026019",
+      "po_number": "PO-2026019",
+      "supplier_id": "SUP-019",
+      "order_date": "2025-11-26T00:00:00",
+      "requested_delivery_date": "2025-12-08T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-WZ-7940",
+          "qty": 314,
+          "unit_price": 18.64
+        },
+        {
+          "sku": "SKU-QN-9985",
+          "qty": 130,
+          "unit_price": 98.4
+        }
+      ],
+      "cost_center": "CC-396",
+      "buyer_email": "torresjason@lawson.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5038",
+      "shipment_id": "SHP-5038",
+      "po_number": "PO-2026016",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK00504556",
+      "ship_date": "2025-12-26T00:00:00",
+      "eta": "2025-12-29T00:00:00",
+      "origin": "East Amanda",
+      "destination": "WH-ATL",
+      "status": "in_transit",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9019",
+      "sku": "SKU-AQ-9091",
+      "warehouse_id": "WH-DAL",
+      "change_type": "receipt",
+      "quantity_delta": 346,
+      "recorded_by": "robin74",
+      "timestamp": "2025-12-28T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "delivery_exception",
+      "id": "EXC-3017",
+      "exception_id": "EXC-3017",
+      "po_number": "PO-2026033",
+      "shipment_id": "SHP-5022",
+      "exception_type": "missing_docs",
+      "detected_at": "2026-01-01T00:00:00",
+      "severity": "medium",
+      "description": "Compliance documentation for this lot was not received alongside the shipment.",
+      "related_sku": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026009",
+      "po_number": "PO-2026009",
+      "supplier_id": "SUP-017",
+      "order_date": "2026-01-08T00:00:00",
+      "requested_delivery_date": "2026-01-19T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-TT-6383",
+          "qty": 477,
+          "unit_price": 27.77
+        },
+        {
+          "sku": "SKU-DU-6566",
+          "qty": 162,
+          "unit_price": 202.4
+        }
+      ],
+      "cost_center": "CC-178",
+      "buyer_email": "whitesandra@pham-shields.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7010",
+      "sender": "alvarezkimberly@wheeler.org",
+      "subject": "Quality hold",
+      "received_at": "2025-12-19T00:00:00",
+      "body": "Please note a partial shipment against PO-2026029 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026029",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7013",
+      "sender": "charlene12@weber-richards.com",
+      "subject": "Shipment delay notice",
+      "received_at": "2025-12-30T00:00:00",
+      "body": "Please note a partial shipment against PO-2026017 is going out this week. Remainder to follow.",
+      "referenced_po_number": "PO-2026017",
+      "promised_date": null,
+      "requested_action": "acknowledge_partial",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9004",
+      "sku": "SKU-IC-1333",
+      "warehouse_id": "WH-SEA",
+      "change_type": "receipt",
+      "quantity_delta": 273,
+      "recorded_by": "danielle64",
+      "timestamp": "2025-12-29T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026018",
+      "po_number": "PO-2026018",
+      "supplier_id": "SUP-017",
+      "order_date": "2026-01-06T00:00:00",
+      "requested_delivery_date": "2026-01-16T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-IC-1333",
+          "qty": 377,
+          "unit_price": 118.08
+        },
+        {
+          "sku": "SKU-MO-5341",
+          "qty": 161,
+          "unit_price": 54.2
+        },
+        {
+          "sku": "SKU-AO-0838",
+          "qty": 306,
+          "unit_price": 177.24
+        },
+        {
+          "sku": "SKU-AO-0838",
+          "qty": 392,
+          "unit_price": 76.98
+        },
+        {
+          "sku": "SKU-AO-0838",
+          "qty": 309,
+          "unit_price": 115.74
+        }
+      ],
+      "cost_center": "CC-129",
+      "buyer_email": "yortega@adkins.biz",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "supplier_email",
+      "id": "EML-7024",
+      "sender": "reesejason@chavez-moore.com",
+      "subject": "PO status",
+      "received_at": "2026-01-04T00:00:00",
+      "body": "Apologies for the delay on PO-2026009 \u2014 our production line had an issue. New promised date: January 02.",
+      "referenced_po_number": "PO-2026009",
+      "promised_date": "2026-01-02T00:00:00",
+      "requested_action": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9015",
+      "sku": "SKU-AQ-9091",
+      "warehouse_id": "WH-PHX",
+      "change_type": "shipment",
+      "quantity_delta": -156,
+      "recorded_by": "jessica14",
+      "timestamp": "2025-12-26T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "purchase_order",
+      "id": "PO-2026014",
+      "po_number": "PO-2026014",
+      "supplier_id": "SUP-004",
+      "order_date": "2025-12-20T00:00:00",
+      "requested_delivery_date": "2025-12-26T00:00:00",
+      "line_items": [
+        {
+          "sku": "SKU-DP-2624",
+          "qty": 344,
+          "unit_price": 236.24
+        }
+      ],
+      "cost_center": "CC-306",
+      "buyer_email": "carlsonmichael@graham-joyce.com",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "shipment_update",
+      "id": "SHP-5035",
+      "shipment_id": "SHP-5035",
+      "po_number": "PO-2026009",
+      "carrier": "FreightWays",
+      "tracking_number": "TRK18702621",
+      "ship_date": "2025-12-23T00:00:00",
+      "eta": "2025-12-25T00:00:00",
+      "origin": "Harringtonview",
+      "destination": "WH-ATL",
+      "status": "delivered",
+      "_ground_truth_missing": []
+    },
+    {
+      "record_type": "inventory_change",
+      "id": "INV-9002",
+      "sku": "SKU-VL-3884",
+      "warehouse_id": "WH-PHX",
+      "change_type": "cycle_count",
+      "quantity_delta": 363,
+      "recorded_by": "rsantana",
+      "timestamp": "2025-12-17T00:00:00",
+      "reason_code": null,
+      "_ground_truth_missing": []
+    }
+  ]
+}
