@@ -28,7 +28,14 @@ export function Onboarding({ onEnter }: { onEnter: (workspaceId: string, company
     setBusy(`delete:${ws.id}`)
     try {
       await ChainFlowAPI.deleteWorkspace(ws.id)
-      setWorkspaces(prev => (prev ?? []).filter(w => w.id !== ws.id))
+      setWorkspaces(prev => {
+        const next = (prev ?? []).filter(w => w.id !== ws.id)
+        // Deleted the last one -- jump straight to the create form instead
+        // of leaving the user on an empty "Welcome back" screen with
+        // nothing to resume and an extra click needed to get anywhere.
+        if (next.length === 0) setShowCreateForm(true)
+        return next
+      })
     } finally {
       setBusy(null)
     }
