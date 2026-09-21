@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app import models, schemas
+from app.routers.seed import MODEL_BY_TYPE, _delete_workspace_audit_logs
 
 router = APIRouter(prefix="/workspaces", tags=["workspaces"])
 
@@ -49,3 +50,23 @@ def update_workspace(workspace_id: str, payload: schemas.WorkspaceUpdate, db: Se
     db.commit()
     db.refresh(ws)
     return ws
+
+
+@router.delete("/{workspace_id}")
+def delete_workspace(workspace_id: str, db: Session = Depends(get_db)):
+    """Permanently deletes a workspace and every record in it. Unlike
+    'Clear all workspace data' (which keeps the workspace itself, just
+    empties it), this removes the workspace from the resume list entirely.
+    Same deletion order as wipe_all_records in seed.py, reused directly:
+    audit logs first (FK to exceptions), then every record table, then the
+    workspace row itself last."""
+    ws = db.query(models.Workspace).filter(models.Workspace.id == workspace_id).first()
+    if not ws:
+        raise HTTPException(404, "Workspace not found.")
+
+    _delete_workspace_audit_logs(db, workspace_id)
+    for model_cls, _ in MODEL_BY_TYPE.values():
+        db.query(model_cls).filter(model_cls.workspace_id == workspace_id).delete()
+    db.delete(ws)
+    db.commit()
+    return {"deleted": True, "workspace_id": workspace_id}

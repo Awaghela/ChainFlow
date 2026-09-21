@@ -33,6 +33,7 @@ export const ChainFlowAPI = {
   getWorkspace: (id: string) => api.get<WorkspaceOut>(`/workspaces/${id}`).then(r => r.data),
   renameWorkspace: (id: string, companyName: string) =>
     api.put<WorkspaceOut>(`/workspaces/${id}`, { company_name: companyName }).then(r => r.data),
+  deleteWorkspace: (id: string) => api.delete(`/workspaces/${id}`).then(r => r.data),
 
   // --- Exceptions / review workflow ---
   listExceptions: (state?: string) =>

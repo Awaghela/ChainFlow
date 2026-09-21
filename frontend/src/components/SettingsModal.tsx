@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { X, Sparkles, Trash2, LogOut } from 'lucide-react'
+import { X, Sparkles, Trash2, LogOut, ShieldAlert } from 'lucide-react'
 import { ChainFlowAPI } from '../api/client'
 import { useApp } from '../context/AppContext'
 import { useToast } from '../context/ToastContext'
@@ -55,6 +55,23 @@ export function SettingsModal({ open, onClose }: { open: boolean; onClose: () =>
     logout()
   }
 
+  async function handleDeleteWorkspace() {
+    const confirmed = confirm(
+      `Permanently delete "${companyName}" and everything in it? This can't be undone, and it's different from "Clear all data" -- the workspace itself goes away too.`
+    )
+    if (!confirmed) return
+    setBusy('delete-workspace')
+    try {
+      await ChainFlowAPI.deleteWorkspace(workspaceId)
+      push('warning', 'Workspace deleted', `"${companyName}" and all its data are gone.`)
+      onClose()
+      logout()
+    } catch {
+      push('error', 'Could not delete workspace')
+      setBusy(null)
+    }
+  }
+
   return (
     <AnimatePresence>
       {open && (
@@ -93,6 +110,12 @@ export function SettingsModal({ open, onClose }: { open: boolean; onClose: () =>
               <p className="mt-1.5 text-center text-[10.5px] text-ink-faint">
                 Nothing is deleted — you can resume this workspace anytime from the picker.
               </p>
+              <div className="my-4 border-t border-hairline-soft" />
+              <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-rose"><ShieldAlert size={13} /> Danger zone</p>
+              <button onClick={handleDeleteWorkspace} disabled={!!busy}
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-rose py-2.5 text-xs font-semibold text-white hover:bg-rose/90 disabled:opacity-60">
+                <Trash2 size={14} /> {busy === 'delete-workspace' ? 'Deleting…' : 'Delete this workspace permanently'}
+              </button>
             </div>
             <div className="flex justify-end gap-2.5 border-t border-hairline-soft px-6 py-4">
               <button onClick={onClose} className="rounded-lg border border-hairline bg-white px-4 py-2 text-xs font-semibold text-ink hover:bg-panel-raised">Cancel</button>

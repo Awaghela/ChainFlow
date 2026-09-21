@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Building2, ArrowRight, Sparkles, Loader2, Plus, ChevronRight } from 'lucide-react'
+import { Building2, ArrowRight, Sparkles, Loader2, Plus, ChevronRight, Trash2 } from 'lucide-react'
 import { ChainFlowAPI, setActiveWorkspaceId, type WorkspaceOut } from '../api/client'
 
 export function Onboarding({ onEnter }: { onEnter: (workspaceId: string, companyName: string) => void }) {
@@ -20,6 +20,18 @@ export function Onboarding({ onEnter }: { onEnter: (workspaceId: string, company
     setBusy(ws.id)
     setActiveWorkspaceId(ws.id)
     onEnter(ws.id, ws.company_name)
+  }
+
+  async function remove(ws: WorkspaceOut, e: React.MouseEvent) {
+    e.stopPropagation()
+    if (!confirm(`Permanently delete "${ws.company_name}" and everything in it? This can't be undone.`)) return
+    setBusy(`delete:${ws.id}`)
+    try {
+      await ChainFlowAPI.deleteWorkspace(ws.id)
+      setWorkspaces(prev => (prev ?? []).filter(w => w.id !== ws.id))
+    } finally {
+      setBusy(null)
+    }
   }
 
   async function createNew(withSample: boolean) {
@@ -65,18 +77,29 @@ export function Onboarding({ onEnter }: { onEnter: (workspaceId: string, company
         {!loading && workspaces!.length > 0 && (
           <div className="mt-6 flex flex-col gap-2">
             {workspaces!.map(ws => (
-              <button
+              <div
                 key={ws.id}
-                onClick={() => resume(ws)}
-                disabled={!!busy}
-                className="flex items-center justify-between gap-3 rounded-lg border border-hairline bg-white px-4 py-3 text-left hover:border-indigo hover:bg-indigo-soft disabled:opacity-60"
+                onClick={() => !busy && resume(ws)}
+                role="button"
+                tabIndex={0}
+                className={`group flex items-center justify-between gap-3 rounded-lg border border-hairline bg-white px-4 py-3 text-left hover:border-indigo hover:bg-indigo-soft ${busy ? 'pointer-events-none opacity-60' : 'cursor-pointer'}`}
               >
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold text-ink">{ws.company_name}</p>
                   <p className="text-[11px] text-ink-faint">Created {new Date(ws.created_at).toLocaleDateString()}</p>
                 </div>
-                {busy === ws.id ? <Loader2 size={16} className="shrink-0 animate-spin text-ink-faint" /> : <ChevronRight size={16} className="shrink-0 text-ink-faint" />}
-              </button>
+                <div className="flex shrink-0 items-center gap-1">
+                  <button
+                    onClick={e => remove(ws, e)}
+                    disabled={!!busy}
+                    title="Delete this workspace"
+                    className="pointer-events-auto rounded-md p-1.5 text-ink-faint opacity-0 hover:bg-rose-soft hover:text-rose group-hover:opacity-100 disabled:opacity-100"
+                  >
+                    {busy === `delete:${ws.id}` ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+                  </button>
+                  {busy === ws.id ? <Loader2 size={16} className="animate-spin text-ink-faint" /> : <ChevronRight size={16} className="text-ink-faint" />}
+                </div>
+              </div>
             ))}
           </div>
         )}
