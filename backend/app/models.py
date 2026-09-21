@@ -2,7 +2,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from app.database import Base
@@ -20,10 +20,26 @@ class ReviewState(str, enum.Enum):
     escalated = "escalated"
 
 
+class Workspace(Base):
+    """A single tenant's workspace. Multiple rows now -- each browser session
+    picks one to be 'active' (tracked client-side, see Layout/AppContext),
+    and every record below is scoped to exactly one workspace via
+    workspace_id. Logging out just forgets which workspace was active
+    locally; nothing about the workspace or its data is touched server-side,
+    so it's always there to resume."""
+    __tablename__ = "workspaces"
+    id = Column(String, primary_key=True, default=gen_id)
+    company_name = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
 class PurchaseOrder(Base):
     __tablename__ = "purchase_orders"
+    __table_args__ = (UniqueConstraint("workspace_id", "po_number", name="uq_po_workspace_number"),)
     id = Column(String, primary_key=True, default=gen_id)
-    po_number = Column(String, unique=True, index=True)
+    workspace_id = Column(String, ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False, index=True)
+    po_number = Column(String, index=True)
     supplier_id = Column(String, nullable=True)
     order_date = Column(String, nullable=True)
     requested_delivery_date = Column(String, nullable=True)
@@ -36,8 +52,10 @@ class PurchaseOrder(Base):
 
 class Shipment(Base):
     __tablename__ = "shipments"
+    __table_args__ = (UniqueConstraint("workspace_id", "shipment_id", name="uq_shipment_workspace_id"),)
     id = Column(String, primary_key=True, default=gen_id)
-    shipment_id = Column(String, unique=True, index=True)
+    workspace_id = Column(String, ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False, index=True)
+    shipment_id = Column(String, index=True)
     po_number = Column(String, nullable=True, index=True)
     carrier = Column(String, nullable=True)
     tracking_number = Column(String, nullable=True)
@@ -53,6 +71,7 @@ class Shipment(Base):
 class InventoryChangeRecord(Base):
     __tablename__ = "inventory_changes"
     id = Column(String, primary_key=True, default=gen_id)
+    workspace_id = Column(String, ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False, index=True)
     sku = Column(String, index=True)
     warehouse_id = Column(String, nullable=True)
     change_type = Column(String, nullable=True)
@@ -67,6 +86,7 @@ class InventoryChangeRecord(Base):
 class SupplierEmailRecord(Base):
     __tablename__ = "supplier_emails"
     id = Column(String, primary_key=True, default=gen_id)
+    workspace_id = Column(String, ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False, index=True)
     sender = Column(String, nullable=True)
     subject = Column(String, nullable=True)
     received_at = Column(String, nullable=True)
@@ -80,8 +100,10 @@ class SupplierEmailRecord(Base):
 
 class DeliveryExceptionRecord(Base):
     __tablename__ = "delivery_exceptions"
+    __table_args__ = (UniqueConstraint("workspace_id", "exception_id", name="uq_exception_workspace_id"),)
     id = Column(String, primary_key=True, default=gen_id)
-    exception_id = Column(String, unique=True, index=True)
+    workspace_id = Column(String, ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False, index=True)
+    exception_id = Column(String, index=True)
     po_number = Column(String, nullable=True, index=True)
     shipment_id = Column(String, nullable=True, index=True)
     exception_type = Column(String, nullable=True)
@@ -106,16 +128,6 @@ class DeliveryExceptionRecord(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     audit_entries = relationship("AuditLog", back_populates="exception", cascade="all, delete-orphan", passive_deletes=True)
-
-
-class WorkspaceSettings(Base):
-    """Single-row table holding workspace-level settings (company name, etc).
-    Always keyed 'default' — this is a single-tenant demo app, not a
-    multi-workspace product."""
-    __tablename__ = "workspace_settings"
-    id = Column(String, primary_key=True, default="default")
-    company_name = Column(String, nullable=True)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
 class AuditLog(Base):

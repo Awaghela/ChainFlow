@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app import models, schemas
+from app.deps import get_workspace_id
 from app.rules import validation_v2 as validator
 from app.services import llm
 
@@ -28,23 +29,28 @@ def _log(db: Session, exc: models.DeliveryExceptionRecord, actor: str, action: s
     db.commit()
 
 
-def _gather_context(db: Session, exc: models.DeliveryExceptionRecord) -> dict:
+def _gather_context(db: Session, workspace_id: str, exc: models.DeliveryExceptionRecord) -> dict:
     po = None
     if exc.po_number:
-        p = db.query(models.PurchaseOrder).filter(models.PurchaseOrder.po_number == exc.po_number).first()
+        p = db.query(models.PurchaseOrder).filter(
+            models.PurchaseOrder.workspace_id == workspace_id,
+            models.PurchaseOrder.po_number == exc.po_number).first()
         if p:
             po = {"po_number": p.po_number, "supplier_id": p.supplier_id,
                   "requested_delivery_date": p.requested_delivery_date, "cost_center": p.cost_center}
     shipment = None
     if exc.shipment_id:
-        s = db.query(models.Shipment).filter(models.Shipment.shipment_id == exc.shipment_id).first()
+        s = db.query(models.Shipment).filter(
+            models.Shipment.workspace_id == workspace_id,
+            models.Shipment.shipment_id == exc.shipment_id).first()
         if s:
             shipment = {"shipment_id": s.shipment_id, "carrier": s.carrier, "status": s.status,
                         "eta": s.eta, "destination": s.destination}
     emails = []
     if exc.po_number:
         rows = (db.query(models.SupplierEmailRecord)
-                .filter(models.SupplierEmailRecord.referenced_po_number == exc.po_number).limit(3).all())
+                .filter(models.SupplierEmailRecord.workspace_id == workspace_id,
+                        models.SupplierEmailRecord.referenced_po_number == exc.po_number).limit(3).all())
         emails = [{"subject": e.subject, "body": e.body, "promised_date": e.promised_date} for e in rows]
 
     return {
@@ -58,15 +64,26 @@ def _gather_context(db: Session, exc: models.DeliveryExceptionRecord) -> dict:
     }
 
 
+def _get_or_404(db: Session, workspace_id: str, exception_id: str) -> models.DeliveryExceptionRecord:
+    obj = db.query(models.DeliveryExceptionRecord).filter(
+        models.DeliveryExceptionRecord.workspace_id == workspace_id,
+        models.DeliveryExceptionRecord.exception_id == exception_id).first()
+    if not obj:
+        raise HTTPException(404, "Exception not found")
+    return obj
+
+
 @router.post("")
-def ingest_exception(payload: dict, db: Session = Depends(get_db)):
+def ingest_exception(payload: dict, db: Session = Depends(get_db), workspace_id: str = Depends(get_workspace_id)):
     payload = {**payload, "record_type": "delivery_exception"}
     missing = validator.check_record(payload)
     existing = db.query(models.DeliveryExceptionRecord).filter(
+        models.DeliveryExceptionRecord.workspace_id == workspace_id,
         models.DeliveryExceptionRecord.exception_id == payload.get("exception_id")).first()
     fields = {k: v for k, v in payload.items()
               if k in models.DeliveryExceptionRecord.__table__.columns.keys()}
     fields["missing_fields"] = missing
+    fields["workspace_id"] = workspace_id
     if existing:
         for k, v in fields.items():
             setattr(existing, k, v)
@@ -81,8 +98,9 @@ def ingest_exception(payload: dict, db: Session = Depends(get_db)):
 
 
 @router.get("", response_model=list[schemas.ExceptionOut])
-def list_exceptions(db: Session = Depends(get_db), state: str | None = None, limit: int = 200):
-    q = db.query(models.DeliveryExceptionRecord)
+def list_exceptions(db: Session = Depends(get_db), workspace_id: str = Depends(get_workspace_id),
+                     state: str | None = None, limit: int = 200):
+    q = db.query(models.DeliveryExceptionRecord).filter(models.DeliveryExceptionRecord.workspace_id == workspace_id)
     if state:
         q = q.filter(models.DeliveryExceptionRecord.review_state == state)
     rows = q.order_by(models.DeliveryExceptionRecord.created_at.desc()).limit(limit).all()
@@ -90,22 +108,15 @@ def list_exceptions(db: Session = Depends(get_db), state: str | None = None, lim
 
 
 @router.get("/{exception_id}", response_model=schemas.ExceptionOut)
-def get_exception(exception_id: str, db: Session = Depends(get_db)):
-    obj = db.query(models.DeliveryExceptionRecord).filter(
-        models.DeliveryExceptionRecord.exception_id == exception_id).first()
-    if not obj:
-        raise HTTPException(404, "Exception not found")
-    return obj
+def get_exception(exception_id: str, db: Session = Depends(get_db), workspace_id: str = Depends(get_workspace_id)):
+    return _get_or_404(db, workspace_id, exception_id)
 
 
 @router.post("/{exception_id}/summarize", response_model=schemas.ExceptionOut)
-def summarize_exception(exception_id: str, db: Session = Depends(get_db)):
-    obj = db.query(models.DeliveryExceptionRecord).filter(
-        models.DeliveryExceptionRecord.exception_id == exception_id).first()
-    if not obj:
-        raise HTTPException(404, "Exception not found")
+def summarize_exception(exception_id: str, db: Session = Depends(get_db), workspace_id: str = Depends(get_workspace_id)):
+    obj = _get_or_404(db, workspace_id, exception_id)
 
-    context = _gather_context(db, obj)
+    context = _gather_context(db, workspace_id, obj)
     result = llm.generate_triage_brief(context)
 
     obj.ai_summary = result["summary"]
@@ -122,11 +133,9 @@ def summarize_exception(exception_id: str, db: Session = Depends(get_db)):
 
 
 @router.post("/{exception_id}/review", response_model=schemas.ExceptionOut)
-def review_exception(exception_id: str, action: schemas.ReviewAction, db: Session = Depends(get_db)):
-    obj = db.query(models.DeliveryExceptionRecord).filter(
-        models.DeliveryExceptionRecord.exception_id == exception_id).first()
-    if not obj:
-        raise HTTPException(404, "Exception not found")
+def review_exception(exception_id: str, action: schemas.ReviewAction, db: Session = Depends(get_db),
+                      workspace_id: str = Depends(get_workspace_id)):
+    obj = _get_or_404(db, workspace_id, exception_id)
 
     transition = VALID_TRANSITIONS.get(action.action)
     if not transition:
@@ -148,11 +157,8 @@ def review_exception(exception_id: str, action: schemas.ReviewAction, db: Sessio
 
 
 @router.get("/{exception_id}/audit", response_model=list[schemas.AuditLogOut])
-def get_audit_log(exception_id: str, db: Session = Depends(get_db)):
-    obj = db.query(models.DeliveryExceptionRecord).filter(
-        models.DeliveryExceptionRecord.exception_id == exception_id).first()
-    if not obj:
-        raise HTTPException(404, "Exception not found")
+def get_audit_log(exception_id: str, db: Session = Depends(get_db), workspace_id: str = Depends(get_workspace_id)):
+    obj = _get_or_404(db, workspace_id, exception_id)
     rows = (db.query(models.AuditLog).filter(models.AuditLog.exception_pk == obj.id)
             .order_by(models.AuditLog.timestamp.asc()).all())
     return rows

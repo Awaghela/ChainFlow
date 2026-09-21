@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { X, Sparkles, Trash2 } from 'lucide-react'
+import { X, Sparkles, Trash2, LogOut } from 'lucide-react'
 import { ChainFlowAPI } from '../api/client'
 import { useApp } from '../context/AppContext'
 import { useToast } from '../context/ToastContext'
 
 export function SettingsModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { companyName, setCompanyName, bumpRefresh } = useApp()
+  const { workspaceId, companyName, setCompanyName, bumpRefresh, logout } = useApp()
   const [name, setName] = useState(companyName)
   const [busy, setBusy] = useState<string | null>(null)
   const { push } = useToast()
@@ -16,7 +16,7 @@ export function SettingsModal({ open, onClose }: { open: boolean; onClose: () =>
     if (!trimmed) return
     setBusy('save')
     try {
-      await ChainFlowAPI.updateSettings(trimmed)
+      await ChainFlowAPI.renameWorkspace(workspaceId, trimmed)
       setCompanyName(trimmed)
       push('success', 'Workspace updated')
       onClose()
@@ -50,6 +50,11 @@ export function SettingsModal({ open, onClose }: { open: boolean; onClose: () =>
     } finally { setBusy(null) }
   }
 
+  function handleLogout() {
+    onClose()
+    logout()
+  }
+
   return (
     <AnimatePresence>
       {open && (
@@ -80,6 +85,14 @@ export function SettingsModal({ open, onClose }: { open: boolean; onClose: () =>
                 className="flex w-full items-center justify-center gap-2 rounded-lg border border-rose/30 bg-rose-soft py-2.5 text-xs font-semibold text-rose hover:bg-rose/10 disabled:opacity-60">
                 <Trash2 size={14} /> {busy === 'clear' ? 'Clearing…' : 'Clear all workspace data'}
               </button>
+              <div className="my-4 border-t border-hairline-soft" />
+              <button onClick={handleLogout} disabled={!!busy}
+                className="flex w-full items-center justify-center gap-2 rounded-lg border border-hairline bg-white py-2.5 text-xs font-semibold text-ink-muted hover:bg-panel-raised hover:text-ink disabled:opacity-60">
+                <LogOut size={14} /> Log out of this workspace
+              </button>
+              <p className="mt-1.5 text-center text-[10.5px] text-ink-faint">
+                Nothing is deleted — you can resume this workspace anytime from the picker.
+              </p>
             </div>
             <div className="flex justify-end gap-2.5 border-t border-hairline-soft px-6 py-4">
               <button onClick={onClose} className="rounded-lg border border-hairline bg-white px-4 py-2 text-xs font-semibold text-ink hover:bg-panel-raised">Cancel</button>

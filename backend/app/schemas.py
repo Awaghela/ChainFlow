@@ -63,11 +63,18 @@ class GenericRecordOut(BaseModel):
     missing_fields: list[str] = []
 
 
-class SettingsOut(BaseModel):
-    company_name: Optional[str] = None
+class WorkspaceOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    company_name: str
+    created_at: datetime
 
 
-class SettingsIn(BaseModel):
+class WorkspaceCreate(BaseModel):
+    company_name: str
+
+
+class WorkspaceUpdate(BaseModel):
     company_name: str
 
 

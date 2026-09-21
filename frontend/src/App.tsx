@@ -7,22 +7,45 @@ import { Records } from './pages/Records'
 import { Exceptions } from './pages/Exceptions'
 import { DataQuality } from './pages/DataQuality'
 import { Onboarding } from './pages/Onboarding'
-import { AppProvider } from './context/AppContext'
-import { ChainFlowAPI } from './api/client'
+import { AppProvider, ACTIVE_WORKSPACE_KEY } from './context/AppContext'
+import { ChainFlowAPI, setActiveWorkspaceId } from './api/client'
 
-type BootState = { status: 'loading' } | { status: 'onboarding' } | { status: 'ready'; companyName: string } | { status: 'error' }
+type BootState =
+  | { status: 'loading' }
+  | { status: 'loggedOut' }
+  | { status: 'ready'; workspaceId: string; companyName: string }
+  | { status: 'error' }
 
 export default function App() {
   const [boot, setBoot] = useState<BootState>({ status: 'loading' })
 
   useEffect(() => {
-    ChainFlowAPI.getSettings()
-      .then(s => {
-        if (s.company_name) setBoot({ status: 'ready', companyName: s.company_name })
-        else setBoot({ status: 'onboarding' })
+    const savedId = localStorage.getItem(ACTIVE_WORKSPACE_KEY)
+    if (!savedId) {
+      setBoot({ status: 'loggedOut' })
+      return
+    }
+    setActiveWorkspaceId(savedId)
+    ChainFlowAPI.getWorkspace(savedId)
+      .then(ws => setBoot({ status: 'ready', workspaceId: ws.id, companyName: ws.company_name }))
+      .catch(err => {
+        if (err?.response?.status === 404) {
+          // Saved workspace no longer exists (e.g. a fresh database) --
+          // forget it locally and fall back to the chooser, not a hard error.
+          localStorage.removeItem(ACTIVE_WORKSPACE_KEY)
+          setActiveWorkspaceId(null)
+          setBoot({ status: 'loggedOut' })
+        } else {
+          setBoot({ status: 'error' })
+        }
       })
-      .catch(() => setBoot({ status: 'error' }))
   }, [])
+
+  function enterWorkspace(workspaceId: string, companyName: string) {
+    localStorage.setItem(ACTIVE_WORKSPACE_KEY, workspaceId)
+    setActiveWorkspaceId(workspaceId)
+    setBoot({ status: 'ready', workspaceId, companyName })
+  }
 
   if (boot.status === 'loading') {
     return <div className="flex h-screen items-center justify-center bg-base"><Loader2 className="animate-spin text-ink-faint" size={24} /></div>
@@ -39,12 +62,16 @@ export default function App() {
     )
   }
 
-  if (boot.status === 'onboarding') {
-    return <Onboarding onComplete={companyName => setBoot({ status: 'ready', companyName })} />
+  if (boot.status === 'loggedOut') {
+    return <Onboarding onEnter={enterWorkspace} />
   }
 
   return (
-    <AppProvider initialCompanyName={boot.companyName}>
+    <AppProvider
+      workspaceId={boot.workspaceId}
+      initialCompanyName={boot.companyName}
+      onLogout={() => setBoot({ status: 'loggedOut' })}
+    >
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>

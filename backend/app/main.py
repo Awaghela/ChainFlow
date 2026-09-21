@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.database import Base, engine
-from app.routers import exceptions, metrics, records, seed, settings as settings_router
+from app.routers import exceptions, metrics, records, seed, workspaces
 
 logging.basicConfig(level=logging.INFO)
 settings = get_settings()
@@ -36,7 +36,7 @@ app.include_router(records.router, prefix="/api")
 app.include_router(exceptions.router, prefix="/api")
 app.include_router(seed.router, prefix="/api")
 app.include_router(metrics.router, prefix="/api")
-app.include_router(settings_router.router, prefix="/api")
+app.include_router(workspaces.router, prefix="/api")
 
 
 @app.get("/api/health")

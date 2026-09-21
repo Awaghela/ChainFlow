@@ -5,9 +5,35 @@ const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000/api'
 
 export const api = axios.create({ baseURL: API_BASE })
 
-export interface SettingsOut { company_name: string | null }
+// The active workspace id is attached to every request as a header rather
+// than threaded through every single API call -- set it once (on boot, and
+// whenever the user switches/creates a workspace) and every call below
+// picks it up automatically. There's no login/password in this app; this
+// header is the entire mechanism for "which workspace's data am I looking
+// at right now."
+let activeWorkspaceId: string | null = null
+export function setActiveWorkspaceId(id: string | null) {
+  activeWorkspaceId = id
+}
+api.interceptors.request.use(config => {
+  if (activeWorkspaceId) {
+    config.headers = config.headers || {}
+    config.headers['X-Workspace-Id'] = activeWorkspaceId
+  }
+  return config
+})
+
+export interface WorkspaceOut { id: string; company_name: string; created_at: string }
 
 export const ChainFlowAPI = {
+  // --- Workspaces (no auth -- see setActiveWorkspaceId above) ---
+  createWorkspace: (companyName: string) =>
+    api.post<WorkspaceOut>('/workspaces', { company_name: companyName }).then(r => r.data),
+  listWorkspaces: () => api.get<WorkspaceOut[]>('/workspaces').then(r => r.data),
+  getWorkspace: (id: string) => api.get<WorkspaceOut>(`/workspaces/${id}`).then(r => r.data),
+  renameWorkspace: (id: string, companyName: string) =>
+    api.put<WorkspaceOut>(`/workspaces/${id}`, { company_name: companyName }).then(r => r.data),
+
   // --- Exceptions / review workflow ---
   listExceptions: (state?: string) =>
     api.get<ExceptionRecord[]>('/exceptions', { params: state ? { state } : {} }).then(r => r.data),
@@ -44,10 +70,6 @@ export const ChainFlowAPI = {
   seedStatus: () => api.get<SeedStatus>('/seed/status').then(r => r.data),
   loadSeed: () => api.post<{ loaded: Record<string, number>; total: number }>('/seed/load').then(r => r.data),
   wipeAll: () => api.delete('/records/all').then(r => r.data),
-
-  // --- Settings ---
-  getSettings: () => api.get<SettingsOut>('/settings').then(r => r.data),
-  updateSettings: (companyName: string) => api.put<SettingsOut>('/settings', { company_name: companyName }).then(r => r.data),
 
   // --- Metrics / benchmark ---
   metrics: () => api.get<MetricsReport>('/metrics').then(r => r.data),

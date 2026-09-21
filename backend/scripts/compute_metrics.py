@@ -94,7 +94,7 @@ def compute_field_detection_metrics():
 # ---------------------------------------------------------------------------
 # Metric 2: Exception triage time reduction
 #
-# METHODOLOGY (also documented in METHODOLOGY.md):
+# METHODOLOGY (see the comments below for the full breakdown):
 # Each of the 40 scenarios is assigned, at generation time, three complexity
 # drivers that determine how long a human takes to triage it manually:
 #   - missing_fields: how many required fields the record is missing
@@ -255,12 +255,11 @@ Recall by record type (v1 → v2):
 
 **Mean reduction: {triage_metrics['mean_reduction_pct']}%** (median: {triage_metrics['median_reduction_pct']}%)
 
-Methodology is documented in full in `METHODOLOGY.md` and inline in
-`compute_metrics.py` — each scenario is scored on missing-field count,
-number of linked records to cross-reference, and text ambiguity, with a
-12% simulated rate of the AI summary being insufficient (forcing partial
-manual fallback), so the number reflects a realistic ceiling, not a
-best-case demo.
+Methodology: each scenario is scored on missing-field count, number of
+linked records to cross-reference, and text ambiguity, with a 15% simulated
+rate of the AI summary being insufficient (forcing partial manual fallback),
+so the number reflects a realistic ceiling, not a best-case demo. Full
+formulas are in `backend/scripts/compute_metrics.py`.
 """
     out_md = DATA_DIR / "METRICS_REPORT.md"
     with open(out_md, "w") as f:

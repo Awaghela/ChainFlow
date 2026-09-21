@@ -33,9 +33,8 @@ Recall by record type (v1 → v2):
 
 **Mean reduction: 35.2%** (median: 36.2%)
 
-Methodology is documented in full in `METHODOLOGY.md` and inline in
-`compute_metrics.py` — each scenario is scored on missing-field count,
-number of linked records to cross-reference, and text ambiguity, with a
-12% simulated rate of the AI summary being insufficient (forcing partial
-manual fallback), so the number reflects a realistic ceiling, not a
-best-case demo.
+Methodology: each scenario is scored on missing-field count, number of
+linked records to cross-reference, and text ambiguity, with a 15% simulated
+rate of the AI summary being insufficient (forcing partial manual fallback),
+so the number reflects a realistic ceiling, not a best-case demo. Full
+formulas are in `backend/scripts/compute_metrics.py`.

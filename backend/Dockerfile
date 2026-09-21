@@ -12,4 +12,8 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Shell form (not exec-array form) so ${PORT} actually expands -- most PaaS
+# hosts (Render, Railway, Fly, etc.) inject a dynamic $PORT and expect the
+# app to bind to it. Falls back to 8000 for local/docker-compose use, where
+# PORT isn't set.
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
